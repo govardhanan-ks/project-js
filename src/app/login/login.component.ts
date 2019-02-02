@@ -13,8 +13,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick () {
-    console.log(this.userName)
-    this.router.navigate(['toVote']);
+  onClick() {
+    if (this.userName === 'admin' && this.passWord === 'admin') {
+      this.router.navigate(['toVote']);
+    }
   }
 }
