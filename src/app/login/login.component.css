@@ -4,3 +4,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.mr-4 {
+  margin-right: 6px;
+}

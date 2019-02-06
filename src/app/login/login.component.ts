@@ -17,5 +17,18 @@ export class LoginComponent implements OnInit {
     if (this.userName === 'admin' && this.passWord === 'admin') {
       this.router.navigate(['toVote']);
     }
+    else{
+      alert("invalid user")
+      this.onClear();
+    }
+
+    }
+    onClear() {
+      
+      this.userName ='';
+      this.passWord ='';
+
+    }
+    
   }
-}
+

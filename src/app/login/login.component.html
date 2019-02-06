@@ -10,8 +10,13 @@
              <input type="password" class="form-control" [(ngModel)]="passWord" placeholder="password" required=""/>
            </div>
            <div  class="text-center">
-              <button mat-raised-button color='primary' (click)="onClick()">login</button>
+              <button class="mr-4" mat-raised-button color='primary' (click)="onClick()">login</button>
+                 
+              <button mat-raised-button color='primary' (click)="onClear()">clear</button>
+              
+
            </div>
+           
      </mat-card>
   </div>
   </div>
