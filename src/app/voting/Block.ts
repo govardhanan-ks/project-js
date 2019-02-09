@@ -1,4 +1,4 @@
-import  {SHA256} from 'crypto-js/sha256';
+import  SHA256 from 'crypto-js/sha256';
 
 export class Block{
     index:any;
@@ -17,6 +17,7 @@ export class Block{
         this.Hash=this.caculateHash();
     }
     caculateHash(){
+        // debugger
         return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)).toString();
 
     }

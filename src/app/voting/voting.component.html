@@ -1,20 +1,25 @@
 
-<div class='container'>
-  <div class="form-check form-check-inline">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-    <label class="form-check-label" for="inlineRadio1"> candidate 1</label>
-  </div>
-  <div class="form-check form-check-inline">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-    <label class="form-check-label" for="inlineRadio2"> candidate 2</label>
-  </div>
-  <div class="form-check form-check-inline">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-    <label class="form-check-label" for="inlineRadio3"> candidate 3</label>
-  </div>
-</div>
-        <div>
-            <button mat-raised-button class='mr-2' color='primary' (click)="onSubmit()">submit</button>   
+<div class='container pt-4 pb-4'>
+  <mat-card class='col-sm-12 voting_checkbox text-center voting-lists'>
+      <h4> Select your VOTE for following candidate ....</h4>
+      <mat-radio-group  [(ngModel)]="selected">
+          <mat-radio-button value="1">candidate 1'''  </mat-radio-button>
+          <mat-radio-button value="2">candidate 2'''  </mat-radio-button>
+          <mat-radio-button value="3">candidate 3''' </mat-radio-button>
+          <mat-radio-button value="4">candidate 4''' </mat-radio-button>
+          <mat-radio-button value="5">candidate 5''' </mat-radio-button>
+        </mat-radio-group>
+              <div>
+                  <button mat-raised-button class='mr-2' color='primary' (click)="onSubmit()">submit</button>   
 
-      <button mat-raised-button color='primary' (click)="onViewResul()">ViewResult</button>
+            <button mat-raised-button color='primary' class='mr-2' (click)="onViewResul()">ViewResult</button>
+
+            <button mat-raised-button color='primary' (click)="onvalid()">check chain is valid</button>
       </div>
+      <div *ngIf='showResult' class='table_view'>
+           C1  : {{ c11_count}}<br>
+           C2  : {{ c22_count}}<br>
+           C3  : {{ c33_count}}<br>
+      </div>
+    </mat-card>
+  </div>    

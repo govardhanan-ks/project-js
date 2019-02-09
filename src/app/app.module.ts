@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatCardModule} from '@angular/material';
-
+import {MatButtonModule, MatCheckboxModule, MatCardModule } from '@angular/material';
+import {MatRadioModule} from '@angular/material/radio';
 import { LoginComponent } from './login/login.component';
 import { VotingComponent } from './voting/voting.component';
 @NgModule({
@@ -18,7 +18,7 @@ import { VotingComponent } from './voting/voting.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatButtonModule, MatCheckboxModule,MatCardModule,
+    MatButtonModule, MatCheckboxModule,MatCardModule,MatRadioModule,
     BrowserAnimationsModule,
     FormsModule
   ],
