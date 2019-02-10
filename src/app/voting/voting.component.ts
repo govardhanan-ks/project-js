@@ -12,9 +12,9 @@ export class VotingComponent implements OnInit {
   newBlock: Block;
   chain: any = [];
   selected: any;
-  c11_count:any=0;
-  c22_count:any=0;
-  c33_count:any=0;
+  c11_count: any = 0;
+  c22_count: any = 0;
+  c33_count: any = 0;
   showResult: Boolean = false;
   constructor() {
     this.chain = [this.createGenesisBlock()];
@@ -28,14 +28,14 @@ export class VotingComponent implements OnInit {
     let self = this
     var count = 0;
     var check = 'val';
-    
+
     if (confirm('confirm your vote!')) {
-      
-     this.addBlock(new Block(++count, new Date(), "candidate" + self.selected, 0))
+
+      this.addBlock(new Block(++count, new Date(), "candidate" + self.selected, 0))
       console.log(JSON.stringify(self.chain, null, 4));
     } else {
       console.log("no")
-     
+
     }
   }
   onViewResul() {
@@ -46,15 +46,15 @@ export class VotingComponent implements OnInit {
       for (var i = 0; i < this.chain.length; i++) {
         if (this.chain[i].data === 'candidate1') {
           c1_count++;
-          this.c11_count=c1_count;
+          this.c11_count = c1_count;
         }
         else if (this.chain[i].data === 'candidate2') {
           c2_count++;
-          this.c22_count=c2_count;
+          this.c22_count = c2_count;
         }
         else if (this.chain[i].data === 'candidate3') {
           c3_count++;
-          this.c33_count=c3_count;
+          this.c33_count = c3_count;
         }
 
         //console.log("candidate 1");
@@ -85,27 +85,33 @@ export class VotingComponent implements OnInit {
     return SHA256(newBlock.index + newBlock.previousHash + newBlock.timestamp + JSON.stringify(newBlock.data)).toString();
 
   }
-  isChainValid(){
-    for(let i= 1; i< this.chain.length; i++){
-        const currentBlock =this.chain[i];
-        const preivousBlock =this.chain[i -1];
+  isChainValid() {
+    for (let i = 1; i < this.chain.length; i++) {
+      const currentBlock = this.chain[i];
+      const preivousBlock = this.chain[i - 1];
 
-        if(currentBlock.Hash !== currentBlock.caculateHash()){
-           return false;
+      if (currentBlock.Hash !== currentBlock.caculateHash()) {
+        return false;
 
-        }
+      }
 
-       
-        if(currentBlock.previousHash !== preivousBlock.Hash){
-            return false;
-        }
+
+      if (currentBlock.previousHash !== preivousBlock.Hash) {
+        return false;
+      }
     }
 
     return true;
-}
-onvalid(){
-  console.log('is blockchain valid?  ' +this.isChainValid());
-}
+  }
+  onvalid() {
+    console.log('is blockchain valid?  ' + this.isChainValid());
+    //change the data of block
+    //this.chain[1].data ='{candi}';
+    //console.log('is blockchain valid?  ' +this.isChainValid());
+  }
+
+
+
   ngOnInit() {
   }
 

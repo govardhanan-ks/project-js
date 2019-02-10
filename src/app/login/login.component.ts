@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   userName: any;
   passWord: any;
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -17,18 +17,18 @@ export class LoginComponent implements OnInit {
     if (this.userName === 'admin' && this.passWord === 'admin') {
       this.router.navigate(['toVote']);
     }
-    else{
+    else {
       alert("invalid user")
       this.onClear();
     }
 
-    }
-    onClear() {
-      
-      this.userName ='';
-      this.passWord ='';
-
-    }
-    
   }
+  onClear() {
+
+    this.userName = '';
+    this.passWord = '';
+
+  }
+
+}
 
