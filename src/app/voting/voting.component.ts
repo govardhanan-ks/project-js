@@ -15,6 +15,8 @@ export class VotingComponent implements OnInit {
   c11_count: any = 0;
   c22_count: any = 0;
   c33_count: any = 0;
+  c44_count: any = 0;
+  c55_count: any = 0;
   showResult: Boolean = false;
   constructor() {
     this.chain = [this.createGenesisBlock()];
@@ -40,7 +42,7 @@ export class VotingComponent implements OnInit {
   }
   onViewResul() {
     this.showResult = true
-    var c1_count = 0, c2_count = 0, c3_count = 0;
+    var c1_count = 0, c2_count = 0, c3_count = 0,c4_count=0,c5_count=0;
 
     loop: {
       for (var i = 0; i < this.chain.length; i++) {
@@ -56,12 +58,22 @@ export class VotingComponent implements OnInit {
           c3_count++;
           this.c33_count = c3_count;
         }
-
+        
+        else if (this.chain[i].data === 'candidate4') {
+          c4_count++;
+          this.c44_count = c4_count;
+        }
+        else if (this.chain[i].data === 'candidate5') {
+          c5_count++;
+          this.c55_count = c5_count;
+        }
         //console.log("candidate 1");
       }
       console.log(c1_count);
       console.log(c2_count);
       console.log(c3_count);
+      console.log(c4_count);
+      console.log(c5_count);
 
     }
     console.log("DONE");
